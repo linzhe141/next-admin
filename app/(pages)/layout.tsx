@@ -1,8 +1,10 @@
 'use client'
-import { MenuNav } from '@/components/menuNav'
+import { MenuNav } from '@/components/menu-nav'
 import { Button } from '@/components/ui/button'
 import { logout } from '@/lib/actions'
 import { useRouter } from 'next/navigation'
+import { ScrollArea } from '@/components/ui/scroll-area'
+
 export default function Layout({
   children,
 }: Readonly<{
@@ -53,9 +55,9 @@ export default function Layout({
             </div>
           </div>
         </div>
-        <div className='h-0 flex-1 overflow-auto'>
+        <ScrollArea className='h-0 flex-1'>
           <MenuNav />
-        </div>
+        </ScrollArea>
       </aside>
       <div className='flex-1'>
         <div className='flex h-[50px] items-center px-4 shadow'>

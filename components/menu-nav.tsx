@@ -1,4 +1,4 @@
-import { MenuNavItem } from './menuNavItem'
+import { MenuNavItem } from './menu-nav-item'
 
 const menuData = [
   {

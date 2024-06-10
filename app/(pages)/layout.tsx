@@ -33,9 +33,9 @@ export default function Layout({
                 y2='208'
                 fill='none'
                 stroke='currentColor'
-                stroke-linecap='round'
-                stroke-linejoin='round'
-                stroke-width='16'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth='16'
               ></line>
               <line
                 x1='192'
@@ -44,11 +44,10 @@ export default function Layout({
                 y2='192'
                 fill='none'
                 stroke='currentColor'
-                stroke-linecap='round'
-                stroke-linejoin='round'
-                stroke-width='16'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth='16'
               ></line>
-              <span className='sr-only'>Website Name</span>
             </svg>
             <div className='visible flex w-auto flex-col justify-end truncate'>
               <span className='font-medium'>Next Admin</span>

@@ -1,13 +1,20 @@
 import { cn } from '@/lib/utils'
 import { useState } from 'react'
-
+import { IconType } from 'react-icons/lib'
+import { IoIosArrowDown } from 'react-icons/io'
+import { PiEmpty } from 'react-icons/pi'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 export type Props = {
   label: string
   level?: number
+  href?: string
   children?: Props[]
+  icon?: IconType
 }
 export function MenuNavItem(props: Props) {
-  const { label, children, level = 1 } = props
+  const pathname = usePathname()
+  const { label, children, level = 1, icon: Icon = PiEmpty, href } = props
   const [open, setOpen] = useState(false)
   function onClick(data: Props) {
     if (data.children?.length) {
@@ -20,43 +27,31 @@ export function MenuNavItem(props: Props) {
         onClick={() => onClick(props)}
         className={cn(
           'mt-1 flex cursor-pointer items-center justify-between hover:bg-accent hover:text-accent-foreground',
-          level > 1 ? 'h-10 border-l border-l-slate-500' : 'h-12'
+          level > 1 ? 'h-10 border-l border-l-slate-500' : 'h-12',
+          href === pathname ? 'bg-accent' : ''
         )}
       >
-        <div className={cn('flex items-center', level > 1 ? 'ml-2' : 'ml-6')}>
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            width='18'
-            height='18'
-            viewBox='0 0 24 24'
-            fill='none'
-            stroke='currentColor'
-            strokeWidth='2'
-            strokeLinecap='round'
-            strokeLinejoin='round'
-          >
-            <path d='M3 12l3 3l3 -3l-3 -3z'></path>
-            <path d='M15 12l3 3l3 -3l-3 -3z'></path>
-            <path d='M9 6l3 3l3 -3l-3 -3z'></path>
-            <path d='M9 18l3 3l3 -3l-3 -3z'></path>
-          </svg>
-          <div className='ml-2'>{label}</div>
+        <div
+          className={cn(
+            'flex flex-1 items-center',
+            level > 1 ? 'ml-2' : 'ml-6'
+          )}
+        >
+          <Icon />
+          {href ? (
+            <Link
+              className='ml-2 w-full text-sm font-medium leading-10'
+              href={href}
+            >
+              {label}
+            </Link>
+          ) : (
+            <div className='ml-2 text-sm font-medium'>{label}</div>
+          )}
         </div>
         {children?.length && (
           <div className={cn('mr-4 transition-all', open ? 'rotate-180' : '')}>
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              width='24'
-              height='24'
-              viewBox='0 0 24 24'
-              fill='none'
-              stroke='currentColor'
-              strokeWidth='1'
-              strokeLinecap='round'
-              strokeLinejoin='round'
-            >
-              <path d='M6 9l6 6l6 -6'></path>
-            </svg>
+            <IoIosArrowDown />
           </div>
         )}
       </div>

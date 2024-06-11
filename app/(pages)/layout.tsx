@@ -4,6 +4,16 @@ import { Button } from '@/components/ui/button'
 import { logout } from '@/lib/actions'
 import { useRouter } from 'next/navigation'
 import { ScrollArea } from '@/components/ui/scroll-area'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
 
 export default function Layout({
   children,
@@ -59,10 +69,46 @@ export default function Layout({
         </ScrollArea>
       </aside>
       <div className='flex-1'>
-        <div className='flex h-[50px] items-center px-4 shadow'>
-          <Button onClick={handleClick}>注销</Button>
+        <div className='flex h-[50px] items-center justify-between px-4 shadow'>
+          <div></div>
+          <div className='mr-1'>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant='ghost'
+                  className='relative h-8 w-8 rounded-full'
+                >
+                  <Avatar className='size-8'>
+                    <AvatarImage src='https://github.com/linzhe141.png' />
+                    <AvatarFallback>CN</AvatarFallback>
+                  </Avatar>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className='w-56' align='end' forceMount>
+                <DropdownMenuLabel className='font-normal'>
+                  <div className='flex flex-col space-y-1'>
+                    <p className='text-sm font-medium leading-none'>linzhe</p>
+                    <p className='text-xs leading-none text-muted-foreground'>
+                      linzhe141@example.com
+                    </p>
+                  </div>
+                </DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuGroup>
+                  <DropdownMenuItem>Profile</DropdownMenuItem>
+                  <DropdownMenuItem>New Team</DropdownMenuItem>
+                  <DropdownMenuItem
+                    onClick={handleClick}
+                    className='cursor-pointer'
+                  >
+                    注销
+                  </DropdownMenuItem>
+                </DropdownMenuGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
         </div>
-        <div className='p-4'>{children}</div>
+        <div className='p-2'>{children}</div>
       </div>
     </div>
   )

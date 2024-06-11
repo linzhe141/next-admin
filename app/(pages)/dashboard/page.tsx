@@ -1,62 +1,39 @@
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table'
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from '@/components/ui/pagination'
-
+import { TbCurrencyRenminbi } from 'react-icons/tb'
+import { Overview } from './components/Overview'
+import { RecentList } from './components/Recent-list'
 export default function Dashboard() {
+  const summaryData = [
+    { title: '总计', value: '￥123,01.50' },
+    { title: '总计', value: '￥123,01.50' },
+    { title: '总计', value: '￥123,01.50' },
+    { title: '总计', value: '￥123,01.50' },
+  ]
   return (
     <div>
-      <div className='rounded border'>
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead className='w-[100px]'>Invoice</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead>Method</TableHead>
-              <TableHead className='text-right'>Amount</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            <TableRow>
-              <TableCell className='font-medium'>INV001</TableCell>
-              <TableCell>Paid</TableCell>
-              <TableCell>Credit Card</TableCell>
-              <TableCell className='text-right'>$250.00</TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
+      <div className='flex gap-2'>
+        {summaryData.map((i) => (
+          <div
+            className='flex flex-1 flex-col justify-between rounded border p-4 shadow'
+            key={performance.now()}
+          >
+            <div className='flex items-center justify-between text-sm'>
+              <div className='text-sm font-medium tracking-tight'>
+                {i.title}
+              </div>
+              <TbCurrencyRenminbi />
+            </div>
+            <div className='my-2 text-2xl font-bold'>{i.value}</div>
+            <div className='text-xs text-muted-foreground'>比上个月 +20.1%</div>
+          </div>
+        ))}
       </div>
-      <div className='mt-2'>
-        <Pagination>
-          <PaginationContent>
-            <PaginationItem>
-              <PaginationPrevious href='#' />
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLink href='#'>1</PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationEllipsis />
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationNext href='#' />
-            </PaginationItem>
-          </PaginationContent>
-        </Pagination>
+      <div className='mt-2 flex gap-2'>
+        <div className='flex-[4] rounded border p-4 shadow'>
+          <Overview />
+        </div>
+        <div className='flex-[3] rounded border p-4 shadow'>
+          <RecentList />
+        </div>
       </div>
     </div>
   )

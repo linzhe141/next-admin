@@ -1,19 +1,21 @@
 import { MenuNavItem } from './menu-nav-item'
-
+import { FaAppStoreIos, FaTasks } from 'react-icons/fa'
+import { MdOutlineDashboard } from 'react-icons/md'
+import { IoGitPullRequestSharp } from 'react-icons/io5'
+import { LiaTruckSolid } from 'react-icons/lia'
+import { GiCargoCrate } from 'react-icons/gi'
 const menuData = [
+  { label: 'Dashboard', icon: MdOutlineDashboard, href: '/dashboard' },
+  { label: 'Tasks', icon: FaTasks, href: '/task' },
+  { label: 'Apps', icon: FaAppStoreIos },
+  { label: 'Users' },
   {
-    label: 'test1',
+    label: 'Requests',
+    icon: IoGitPullRequestSharp,
     children: [
-      { label: 'test1-1' },
-      { label: 'test1-2' },
-      { label: 'test1-3' },
+      { label: 'Trucks', icon: LiaTruckSolid },
+      { label: 'Cargos', icon: GiCargoCrate },
     ],
-  },
-  { label: 'test2' },
-  { label: 'test3' },
-  {
-    label: 'test4',
-    children: [{ label: 'test4-1' }, { label: 'test4-2' }],
   },
 ]
 export function MenuNav() {

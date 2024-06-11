@@ -108,7 +108,7 @@ export default function Layout({
             </DropdownMenu>
           </div>
         </div>
-        <div className='p-2'>{children}</div>
+        <div className='p-8'>{children}</div>
       </div>
     </div>
   )

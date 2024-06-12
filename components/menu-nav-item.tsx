@@ -26,9 +26,9 @@ export function MenuNavItem(props: Props) {
       <div
         onClick={() => onClick(props)}
         className={cn(
-          'mt-1 flex cursor-pointer items-center justify-between hover:bg-accent hover:text-accent-foreground',
+          'mt-1 flex cursor-pointer items-center justify-between hover:bg-[#5e9ced] hover:text-white',
           level > 1 ? 'h-10 border-l border-l-slate-500' : 'h-12',
-          href === pathname ? 'bg-accent' : ''
+          href === pathname ? 'bg-[#5e9ced] text-white' : ''
         )}
       >
         <div

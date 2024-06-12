@@ -11,7 +11,7 @@ export default function Dashboard() {
     { title: '总计', value: '￥123,01.50' },
   ]
   return (
-    <div>
+    <div className='rounded bg-white p-4'>
       <h2 className='mb-4 text-3xl font-bold tracking-tight'>Dashboard</h2>
       <Tabs defaultValue='Overview' className='w-full'>
         <TabsList>

@@ -68,8 +68,8 @@ export default function Layout({
           <MenuNav />
         </ScrollArea>
       </aside>
-      <div className='flex-1'>
-        <div className='flex h-[50px] items-center justify-between px-4 shadow'>
+      <div className='flex-1 bg-[#f5f5f5]'>
+        <div className='flex h-[50px] items-center justify-between bg-white px-4 shadow'>
           <div></div>
           <div className='mr-1'>
             <DropdownMenu>
@@ -108,7 +108,7 @@ export default function Layout({
             </DropdownMenu>
           </div>
         </div>
-        <div className='p-8'>{children}</div>
+        <div className='p-4'>{children}</div>
       </div>
     </div>
   )

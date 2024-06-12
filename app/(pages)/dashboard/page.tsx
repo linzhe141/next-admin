@@ -1,6 +1,6 @@
 import { TbCurrencyRenminbi } from 'react-icons/tb'
-import { Overview } from './components/Overview'
-import { RecentList } from './components/Recent-list'
+import { Overview } from './components/overview'
+import { RecentList } from './components/recent-list'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
 export default function Dashboard() {
